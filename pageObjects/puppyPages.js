@@ -9,11 +9,22 @@ var wagerCommands = {
             this
                 .clearValue('@amountField')
                 .setValue('@amountField', wagerEdit.amount)
+            // this.api.usexpath()
+                // .clearValue('(//label[contains(text(), "Amount")])/..//input')
+                // .setValue('(//label[contains(text(), "Amount")])/..//input', wagerEdit.amount)
         }
         if (wagerEdit.expire) {
             this
+                .click('@expireSelect')
+                .pause(1000)
+                .click('@expireMinutes')
+                .pause(1000)
                 .clearValue('@expireField')
                 .setValue('@expireField', wagerEdit.expire)
+            // this
+            //     .clearValue('(//label[contains(text(), "Expiration")])/..//input')
+            //     .setValue('(//label[contains(text(), "Expiration")])/..//input', wagerEdit.expire)
+            //     .api.useCss()
         }
         if (wagerEdit.newFriend) {
             this
@@ -25,7 +36,8 @@ var wagerCommands = {
     editTest: function (wagerEdit) {
         this
             .expect.element('@iBet').text.to.equal('I bet').before(500)
-            .wagerEdit(wagerEdit)
+        this
+            .editWager(wagerEdit)
         this.expect.element('@wagerField').value.to.equal(wagerEdit.wager).before(2000)
         this.expect.element('@amountField').value.to.equal(wagerEdit.amount)
         this.expect.element('@expireField').value.to.equal(wagerEdit.expire)
@@ -46,42 +58,63 @@ module.exports = {
             selector: '//*[@class="ml-3"]',
             locateStrategy: 'xpath'
         },
+        iBet: {
+            selector: '(//label[contains(text(), "I bet")])/..//label',
+            locateStrategy: 'xpath'
+        },
         signInSignUp: {
             selector: '(//*[@class="btn btn-primary"])[1]',
             locateStrategy: 'xpath'
         },
         emailSignInText: {
             selector: '//*[text()="Sign in with email"]',
-            localStorage: 'Xpath'
+            locateStrategy: 'xpath'
         },
         googleSignInText: {
             selector: '//*[text()="Sign in with Google"]',
-            localStorage: 'Xpath'
+            locateStrategy: 'xpath'
         },
         enterField: {
             selector: '(//*[@class="whsOnd zHQkBf"])[1]',
-            localStorage: 'Xpath'
+            locateStrategy: 'xpath'
         },
-        nextButton: {
-            selector: '(//*[@class="ZFr60d CeoRYc"])[1]',
-            localStorage: 'Xparh'
+        emailNext: {
+            selector: '//*[@id="identifierNext"]',
+            locateStrategy: 'xpath'
+        },
+        passwordNext: {
+            selector: '//*[@id="passwordNext"]',
+            locateStrategy: 'xpath'
         },
         wagerPageButton: {
             selector: '(//*[@class="btn w-100 px-1 btn-selected-tab btn-lg"])[1]',
-            localStorage: 'Xpath'
+            locateStrategy: 'xpath'
         },
         handShakeIcon: {
             selector: '//*[@class="far fa-handshake fa-lg"]',
-            localStorage: 'Xpath'
+            locateStrategy: 'xpath'
+        },
+        amountField: {
+            selector: '(//label[contains(text(), "Amount")])/..//input',
+            locateStrategy: 'xpath'
+        },
+        expireField: {
+            selector: '(//label[contains(text(), "Expiration")])/..//input',
+            locateStrategy: 'xpath'
+        },
+        expireSelect: {
+            selector: '//*[@class="btn btn-secondary dropdown-toggle"]',
+            locateStrategy: 'xpath'
+        },
+        expireMinutes:{
+            selector: '//*[text()="Minutes"]',
+            locateStrategy: 'xpath'
         },
 
         googleSignInButton: '[data-provider-id="google.com"]',
         emailSignInButton: '[data-provider-id="password"]',
         headerText: '[id="headingText"]',
-        iBet: '#toplevelForPopover__BV_label_',
         wagerField: '#wager',
-        amountField: '#__BVID__19',
-        expireField: '#__BVID__21',
         newFriendField: '#newFriends'
 
     }
