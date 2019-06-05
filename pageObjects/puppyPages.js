@@ -94,6 +94,62 @@ module.exports = {
             selector: '//*[@class="far fa-handshake fa-lg"]',
             locateStrategy: 'xpath'
         },
+        betFeedButton: {
+            selector: '(//*[@class="btn w-100 active btn-unselected-tab btn-lg"])[1]',
+            locateStrategy: 'xpath'
+        },
+        betFeedIcon: {
+            selector: '//*[@class="fal fa-comment fa-lg"]',
+            locateStrategy: 'xpath'
+        },
+        leaderPageButton: {
+            selector: '(//*[@class="btn w-100 btn-unselected-tab btn-lg"])[1]',
+            locateStrategy: 'xpath'
+        },
+        LeaderIcon: {
+            selector: '//*[@class="far fa-trophy-alt fa-lg force-fontawesome-pro-family"]',
+            locateStrategy: 'xpath'
+        },
+        friendsPageButton: {
+            selector: '(//*[@class="btn w-100 btn-unselected-tab btn-lg"])[2]',
+            locateStrategy: 'xpath'
+        },
+        friendsIcon: {
+            selector: '//*[@class="far fa-users fa-lg force-fontawesome-pro-family"]',
+            locateStrategy: 'xpath'
+        },
+        menuIcon: {
+            selector: '//*[@class="fas fa-bars fa-lg"]',
+            locateStrategy: 'xpath'
+        },
+        menuItem1: {
+            selector: '(//*[@class="dropdown-item"])[1]',
+            locateStrategy: 'xpath'
+        },
+        menuItem2: {
+            selector: '(//*[@class="dropdown-item"])[2]',
+            locateStrategy: 'xpath'
+        },
+        footerText: {
+            selector: '//*[@class="container-fluid text-center text-md-left m-0 p-0"]',
+            locateStrategy: 'xpath'
+        },
+        privacy: {
+            selector: '//*/a[@href="/privacy"]',
+            locateStrategy: 'xpath'
+        },
+        terms: {
+            selector: '//*/a[@href="/terms"]',
+            locateStrategy: 'xpath'
+        },
+        copy2019: {
+            selector: '//*[@class="text-muted float-right pt-1 copyright-size"]',
+            locateStrategy: 'xpath'
+        },
+        privacyTermTab: {
+            selector: '//*/h2',
+            locateStrategy: 'xpath'
+        },
         amountField: {
             selector: '(//label[contains(text(), "Amount")])/..//input',
             locateStrategy: 'xpath'

@@ -38,7 +38,7 @@ module.exports = {
                 .setValue('@enterField', 'betpuppytester@gmail.com')
                 .click('@emailNext')
                 .pause(1000)
-                .setValue('@enterField', '***********')
+                .setValue('@enterField', '************')
                 .click('@passwordNext')
                 .pause(2000)
                 .switchWindow(originalWindow)
